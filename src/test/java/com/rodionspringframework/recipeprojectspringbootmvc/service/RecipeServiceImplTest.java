@@ -14,7 +14,7 @@ import java.util.Set;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
-class RecipeServiceImplTest {
+public class RecipeServiceImplTest {
 
     RecipeServiceImpl recipeService;
 
@@ -46,7 +46,7 @@ class RecipeServiceImplTest {
 
         assertEquals(recipeDataActual, recipes);
 
-        verify(recipeRepository,times(3)).findAll();
+        verify(recipeRepository,times(1)).findAll();
 
     }
 }
