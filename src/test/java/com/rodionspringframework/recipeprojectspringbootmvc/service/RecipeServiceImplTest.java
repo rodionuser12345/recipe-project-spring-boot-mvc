@@ -2,24 +2,28 @@ package com.rodionspringframework.recipeprojectspringbootmvc.service;
 
 import com.rodionspringframework.recipeprojectspringbootmvc.domain.Recipe;
 import com.rodionspringframework.recipeprojectspringbootmvc.repositories.RecipeRepository;
-import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
 import java.util.HashSet;
+import java.util.Optional;
 import java.util.Set;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.mockito.Mockito.*;
 
 public class RecipeServiceImplTest {
 
-    RecipeServiceImpl recipeService;
+    final Long ID = 1L;
 
     @Mock
     RecipeRepository recipeRepository;
+
+    RecipeServiceImpl recipeService;
 
     @BeforeEach
     void setUp() throws Exception {
@@ -29,12 +33,8 @@ public class RecipeServiceImplTest {
         recipeService = new RecipeServiceImpl(recipeRepository);
     }
 
-    @AfterEach
-    void tearDown() throws Exception {
-    }
-
     @Test
-    void getRecipes() throws Exception {
+    void getRecipesTest() throws Exception {
 
         Recipe recipe = new Recipe();
         Set<Recipe> recipeDataActual = new HashSet<>();
@@ -46,7 +46,25 @@ public class RecipeServiceImplTest {
 
         assertEquals(recipeDataActual, recipes);
 
-        verify(recipeRepository,times(1)).findAll();
+        verify(recipeRepository, times(1)).findAll();
 
     }
+
+    @Test
+    void getRecipesByIdTest() throws Exception {
+
+        Recipe recipe = new Recipe();
+        recipe.setId(ID);
+
+        when(recipeRepository.findById(anyLong())).thenReturn(Optional.of(recipe));
+
+        Recipe recipeActual = recipeService.findById(ID);
+
+        assertNotNull(recipeActual);
+
+        verify(recipeRepository, times(1)).findById(anyLong());
+
+    }
+
+
 }
