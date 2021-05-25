@@ -65,5 +65,11 @@ public class RecipeServiceImpl implements RecipeService {
 
     }
 
+    @Override
+    @Transactional
+    public RecipeDto findRecipeDtoById(Long id) {
+        return entityToDtoConverter.convert(findById(id));
+    }
+
 
 }

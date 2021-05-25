@@ -7,6 +7,8 @@ import org.springframework.core.convert.converter.Converter;
 import org.springframework.lang.Nullable;
 import org.springframework.stereotype.Component;
 
+import java.util.HashSet;
+
 /**
  * Created by jt on 6/21/17.
  */
@@ -40,6 +42,8 @@ public class RecipeDtoToRecipe implements Converter<RecipeDto, Recipe> {
                 .source(source.getSource())
                 .url(source.getUrl())
                 .notes(notesConverter.convert(source.getNotes()))
+                .categories(new HashSet<>())
+                .ingredients(new HashSet<>())
                 .build();
 
         setCategories(source, recipe);
