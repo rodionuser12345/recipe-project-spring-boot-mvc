@@ -11,13 +11,13 @@
           th:href="@{/webjars/bootstrap/4.4.1/css/bootstrap.min.css}">
 </head>
 <body>
+<!--/*@thymesVar id="recipe" type="com.rodionspringframework.recipeprojectspringbootmvc.domain.Recipe"*/-->
 <div class="container-fluid" style="margin-top: 20px">
     <div class="justify-content-center">
         <div class="col-md-6 offset-md-3">
 
             <div class="card mb-3">
                 <div class="card-header bg-primary text-light mb-3">
-                    <!--/*@thymesVar id="recipe" type="com.rodionspringframework.recipeprojectspringbootmvc.domain.Recipe"*/-->
                     <h1 class="card-title" th:text="${recipe.description}">Recipe Description Here!</h1>
                 </div>
                 <div class="card-body">
@@ -29,7 +29,6 @@
                             <ul>
                                 <li th:remove="all">cat one</li>
                                 <li th:remove="all">cat two</li>
-                                <!--/*@thymesVar id="recipe" type="com.rodionspringframework.recipeprojectspringbootmvc.domain.Recipe"*/-->
                                 <li th:each="category : ${recipe.categories}" th:text="${category.getDescription()}">cat
                                     three
                                 </li>
@@ -91,7 +90,6 @@
                             <ul>
                                 <li th:remove="all">1 Cup of milk</li>
                                 <li th:remove="all">1 Teaspoon of chocolate</li>
-                                <!--/*@thymesVar id="recipe" type="com.rodionspringframework.recipeprojectspringbootmvc.domain.Recipe"*/-->
                                 <li th:each="ingredient : ${recipe.ingredients}"
                                     th:text="${ingredient.getAmount() + ' ' + ingredient.uom.getDescription() + ' - '
                                                 + ingredient.getDescription()}">1 Teaspoon of Sugar

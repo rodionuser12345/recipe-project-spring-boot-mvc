@@ -17,7 +17,6 @@ public class NotesToNotesDto implements Converter<Notes, NotesDto>{
     @Nullable
     @Override
     public NotesDto convert(Notes source) {
-
         return NotesDto.builder().id(source.getId()).recipeNotes(source.getRecipeNotes()).build();
     }
 }

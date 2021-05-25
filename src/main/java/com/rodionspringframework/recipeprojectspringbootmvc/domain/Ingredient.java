@@ -1,9 +1,6 @@
 package com.rodionspringframework.recipeprojectspringbootmvc.domain;
 
-import lombok.Builder;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -21,6 +18,7 @@ import java.math.BigDecimal;
 @EqualsAndHashCode(exclude = {"recipe"})
 @Entity
 @NoArgsConstructor
+@AllArgsConstructor
 @Builder
 public class Ingredient {
 

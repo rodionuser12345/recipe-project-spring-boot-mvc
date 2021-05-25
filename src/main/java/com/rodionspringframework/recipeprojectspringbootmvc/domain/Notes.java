@@ -1,9 +1,6 @@
 package com.rodionspringframework.recipeprojectspringbootmvc.domain;
 
-import lombok.Builder;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -19,6 +16,7 @@ import javax.persistence.OneToOne;
 @EqualsAndHashCode(exclude = {"recipe"})
 @Entity
 @NoArgsConstructor
+@AllArgsConstructor
 @Builder
 public class Notes {
 

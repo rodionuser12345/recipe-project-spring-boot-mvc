@@ -1,10 +1,11 @@
 package com.rodionspringframework.recipeprojectspringbootmvc.service;
 
+import com.rodionspringframework.recipeprojectspringbootmvc.converters.RecipeDtoToRecipe;
+import com.rodionspringframework.recipeprojectspringbootmvc.converters.RecipeToRecipeDto;
 import com.rodionspringframework.recipeprojectspringbootmvc.domain.Recipe;
 import com.rodionspringframework.recipeprojectspringbootmvc.repositories.RecipeRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
@@ -23,6 +24,12 @@ public class RecipeServiceImplTest {
     @Mock
     RecipeRepository recipeRepository;
 
+    @Mock
+    RecipeDtoToRecipe dtoToEntityConverter;
+
+    @Mock
+    RecipeToRecipeDto entityToDtoConverter;
+
     RecipeServiceImpl recipeService;
 
     @BeforeEach
@@ -30,7 +37,7 @@ public class RecipeServiceImplTest {
 
         MockitoAnnotations.initMocks(this);
 
-        recipeService = new RecipeServiceImpl(recipeRepository);
+        recipeService = new RecipeServiceImpl(recipeRepository, dtoToEntityConverter, entityToDtoConverter);
     }
 
     @Test

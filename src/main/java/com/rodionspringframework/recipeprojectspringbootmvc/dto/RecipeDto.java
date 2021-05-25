@@ -1,10 +1,7 @@
 package com.rodionspringframework.recipeprojectspringbootmvc.dto;
 
 import com.rodionspringframework.recipeprojectspringbootmvc.domain.Difficulty;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -12,6 +9,7 @@ import java.util.Set;
 @Getter
 @Setter
 @NoArgsConstructor
+@AllArgsConstructor
 @Builder
 public class RecipeDto {
 
