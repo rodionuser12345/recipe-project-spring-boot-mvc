@@ -1,8 +1,8 @@
 package com.rodionspringframework.recipeprojectspringbootmvc.domain;
 
+import lombok.Builder;
 import lombok.Data;
-import lombok.EqualsAndHashCode;
-import lombok.ToString;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.util.HashSet;
@@ -13,6 +13,8 @@ import java.util.Set;
  */
 @Data
 @Entity
+@NoArgsConstructor
+@Builder
 public class Recipe {
 
     @Id

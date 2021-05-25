@@ -1,7 +1,9 @@
 package com.rodionspringframework.recipeprojectspringbootmvc.domain;
 
+import lombok.Builder;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -16,6 +18,8 @@ import java.util.Set;
 @Data
 @EqualsAndHashCode(exclude = {"recipes"})
 @Entity
+@NoArgsConstructor
+@Builder
 public class Category {
 
     @Id
