@@ -71,5 +71,12 @@ public class RecipeServiceImpl implements RecipeService {
         return entityToDtoConverter.convert(findById(id));
     }
 
+    @Override
+    public void deleteById(Long id) {
+
+        log.debug("Deleting recipe with ID: " + id);
+
+        recipeRepository.deleteById(id);
+    }
 
 }
